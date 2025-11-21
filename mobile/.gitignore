@@ -1,0 +1,5 @@
+build/
+.dart_tool/
+ios/Flutter/ephemeral/
+macos/Flutter/ephemeral/
+android/local.properties
