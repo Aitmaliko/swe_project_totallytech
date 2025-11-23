@@ -371,6 +371,73 @@ static const String baseUrl = 'http://<your-ip>:8000';
 * Hard refresh
 * Login again
 
+## 🔥 BACKEND FIX GUIDE
+
+If backend breaks, follow these exact steps:
+
+1️⃣ Ensure .env is correct
+DATABASE_URL=postgresql://postgres:<your-password>@localhost:5432/<your-db>
+
+2️⃣ Rebuild virtual environment  
+py -3.11 -m venv venv  
+source venv/Scripts/activate
+
+3️⃣ Upgrade pip + essentials  
+python -m pip install --upgrade pip setuptools wheel
+
+4️⃣ Install required packages  
+pip install -r requirements.txt
+
+5️⃣ Fix bcrypt issues (Windows)
+
+If a bcrypt version mismatch or hashing error occurs:  
+pip uninstall bcrypt -y  
+pip install bcrypt==4.1.2  
+pip install --force-reinstall passlib
+
+This resolves:  
+- JWT hashing errors  
+- Password hashing issues  
+- Passlib bcrypt incompatibility
+
+- Also try running seed_data.py in separate terminal and by creating separate venv1 and insalling req.txt:
+req.txt:
+annotated-types==0.7.0
+anyio==4.11.0
+bcrypt==4.1.2
+cffi==2.0.0
+click==8.3.1
+colorama==0.4.6
+cryptography==46.0.3
+dnspython==2.8.0
+ecdsa==0.19.1
+email-validator==2.3.0
+fastapi==0.121.3
+greenlet==3.2.4
+h11==0.16.0
+httptools==0.7.1
+idna==3.11
+passlib==1.7.4
+psycopg2-binary==2.9.11
+pyasn1==0.6.1
+pycparser==2.23
+pydantic==2.12.4
+pydantic-settings==2.12.0
+pydantic_core==2.41.5
+python-dotenv==1.2.1
+python-jose==3.5.0
+PyYAML==6.0.3
+rsa==4.9.1
+six==1.17.0
+sniffio==1.3.1
+SQLAlchemy==2.0.44
+starlette==0.50.0
+typing-inspection==0.4.2
+typing_extensions==4.15.0
+uvicorn==0.38.0
+watchfiles==1.1.1
+websockets==15.0.1
+
 ---
 
 ## 📞 Support
